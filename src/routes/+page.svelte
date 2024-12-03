@@ -149,7 +149,11 @@
 
 		if (0 <= electronegativitySubtraction && electronegativitySubtraction < 0.4)
 			calculated.bondType = 'cộng hóa trị không cực';
-		else if (0.4 <= electronegativitySubtraction && electronegativitySubtraction < 1.7)
+		else if (1.6 < electronegativitySubtraction && electronegativitySubtraction < 2) {
+			if (firstElement.type == 'nonmetal' && secondElement.type == 'nonmetal')
+				calculated.bondType = 'cộng hóa trị có cực';
+			else calculated.bondType = 'ion';
+		} else if (0.4 <= electronegativitySubtraction && electronegativitySubtraction < 1.7)
 			calculated.bondType = 'cộng hóa trị có cực';
 		else if (electronegativitySubtraction >= 1.7) {
 			if (firstElement.type == 'nonmetal' && secondElement.type == 'nonmetal')
